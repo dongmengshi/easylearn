@@ -25,7 +25,8 @@ import cgitb
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QFileDialog
 # from PyQt5.QtCore import *
-from eslearn.stylesheets.PyQt5_stylesheets import PyQt5_stylesheets
+import PyQt5_stylesheets
+from eslearn.PyQt5_stylesheets.PyQt5_stylesheets import pyqt5_style_Dark_rc
 
 from easylearn_feature_engineering_gui import Ui_MainWindow
 
@@ -41,7 +42,10 @@ class EasylearnFeatureEngineeringRun(QMainWindow, Ui_MainWindow):
         self.configuration_file = ""
 
         # Set appearance
+        # try:
         self.set_run_appearance()
+        # except ModuleNotFoundError:
+            # pass
 
         # Debug
         cgitb.enable(display=1, logdir=None)  
